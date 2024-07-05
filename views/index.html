@@ -49,17 +49,20 @@
     </style>
 </head>
 
-<body class="flex flex-col gap-12 p-6">
-    <main class="h-[2000px]">
-        <div class="flex gap-2">
-            <button class="button" hx-get="/random-number" hx-target="#random-container">Random Number</button>
-            <div id="random-container"></div>
-        </div>
+<body>
+    <main class="h-[2000px] w-96 m-auto flex flex-col gap-6 p-6">
+
+        <button class="border-2 p-1 rounded-md" hx-get="/random-number" hx-target="#random-container">Random
+            Number</button>
+
+
+        <div id="random-container"></div>
 
         <div class="flex flex-col gap-2">
             <label>Select a status code:</label>
             <select hx-get="/status-code" hx-target="#image-container" hx-swap="innerHTML transition:true"
-                name="status">
+                className="border-2" name="status">
+                <option value="">---</option>
                 <option value="200">200</option>
                 <option value="300">300</option>
                 <option value="400">400</option>
@@ -70,5 +73,7 @@
         </div>
     </main>
     <div hx-trigger="revealed" hx-on:revealed="alert('revealed')">Last element</div>
+
+</body>
 
 </html>
